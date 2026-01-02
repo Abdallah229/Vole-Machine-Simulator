@@ -1,0 +1,79 @@
+Von Neuman Architecture Computer
+
+Before hard drives
+
+Main memory where programs are stored
+When needed program is sent to CPU to be run (piping stream of instructions and data)
+
+we need:
+    -CPU
+        *ALU (Arithmetic Logic unit) "Carries out operations [Compare, add, or, shift, rotate]
+        *CU (control unit) "Decodes instructions and copies data from memory and sends them to the registers in cpu"
+        *Registers 
+    -Bus (wire/pipe connecting cpu and memory)
+    -Memory
+
+Machine instructions types:
+    -Data transfer
+    -Arithmetic logic
+    -Control
+    
+    example A+B=C
+        steps:
+            1- get A from memory and add it to a register
+            2- get B from memory and add it to another register
+            3- call ALU and give it the two registers A and B values to do the operation on them
+            4- add result to new register
+            5- stop (control)
+
+    example if C!= 0: A = B/C
+            else: stop
+
+            steps:
+                1- get C from memory and add it to a register
+                2- get B from memory and add it to another register
+                3- if first value = 0
+                        go to step 6
+                4- Divide second value by first value and add result to new register
+                5- Add result register to memory
+                6- Stop
+
+    
+
+
+Operations:
+    -Op-Code (which operation to execute)
+
+    -Operand (details about the operation)
+
+
+    example:
+  op-code |    operand
+    [0011   0101 1010 0111] bit form (16 bit)
+       3      5    A   7    Hexa form (4 digits)    
+
+       3-> store register"5" contents in memory
+       5-> register "5"
+       A7-> address of memory 
+
+    
+Instructions:
+    example:
+        Encoded Instructions        Translation
+            156C                    Load register"5" with bits from memory cell 6C
+            166D                    Load register"6" with bits from memory cell 6D
+            5056                    Add values from registers 5, 6 using two's complement and leave results register 0
+            306E                    store register"0" contents in memory cell 6E
+            C000                    Halt/stop
+
+
+Program execution:
+    -Program Counter (PC) "address of (memory cell) next instruction" at initialization = A0 (first memory cell), if theres a skip steps it modifies PC too
+    -Instruction Register (IR) "Current instruction"
+
+    -Machine Cycle
+        -Fetch (add instructions to IR)
+        -Decode
+        -Execute
+
+    
